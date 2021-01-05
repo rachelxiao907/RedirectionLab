@@ -8,7 +8,7 @@ public class PigLatin {
         System.out.print(pigLatinBest(line.next()));
         if (line.hasNext()) System.out.print(" ");
       }
-      if (line.hasNext()) System.out.print(" ");
+      if (in.hasNextLine()) System.out.println();
     }
     // Fast Testing
     // System.out.println(pigLatinBest("*emu"));

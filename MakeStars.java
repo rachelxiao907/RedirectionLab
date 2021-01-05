@@ -11,7 +11,7 @@ public class MakeStars {
         }
         if (line.hasNext()) System.out.print(" ");
       }
-      if (line.hasNext()) System.out.print(" ");
+      System.out.println();
     }
   }
 }

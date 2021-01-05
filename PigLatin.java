@@ -5,17 +5,20 @@ public class PigLatin {
     while (in.hasNextLine()) {
       Scanner line = new Scanner(in.nextLine());
       while (line.hasNext()) {
-        System.out.print(pigLatin(line.next()));
+        System.out.print(pigLatinBest(line.next()));
         System.out.print(" ");
       }
       System.out.println();
     }
-    // Testing
-    // System.out.println(pigLatin("a"));
-    // System.out.println(pigLatin("check"));
-    // System.out.println(pigLatin("skee"));
-    // System.out.println(pigLatin("emu"));
-    // System.out.println(pigLatin("grade"));
+    // Fast Testing
+    // System.out.println(pigLatinBest("*emu"));
+    // System.out.println(pigLatinBest("4chan"));
+    // System.out.println(pigLatinBest("fish!"));
+    // System.out.println(pigLatinBest("fish"));
+    // System.out.println(pigLatinBest("the."));
+    // System.out.println(pigLatinBest("cat!"));
+    // System.out.println(pigLatinBest("amazing?"));
+    // System.out.println(pigLatinBest("apple%"));
   }
 
   public static String pigLatinSimple(String s) {
@@ -40,6 +43,17 @@ public class PigLatin {
       }
     }
     return pigLatinSimple(s);
+  }
+
+  public static String pigLatinBest(String s) {
+    s = s.toLowerCase();
+    if (!Character.isLetter(s.charAt(0))) {
+      return s;
+    }
+    if (!Character.isLetterOrDigit(s.charAt(s.length()-1))) {
+      return pigLatin(s.substring(0, s.length()-1)) + s.substring(s.length()-1);
+    }
+    return pigLatin(s);
   }
 
 }

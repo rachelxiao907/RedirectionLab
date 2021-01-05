@@ -6,9 +6,9 @@ public class PigLatin {
       Scanner line = new Scanner(in.nextLine());
       while (line.hasNext()) {
         System.out.print(pigLatinBest(line.next()));
-        System.out.print(" ");
+        if (line.hasNext()) System.out.print(" ");
       }
-      System.out.println();
+      if (line.hasNext()) System.out.print(" ");
     }
     // Fast Testing
     // System.out.println(pigLatinBest("*emu"));
@@ -30,14 +30,13 @@ public class PigLatin {
   }
 
   public static String pigLatin(String s) {
-    if (s.length() == 1) return pigLatinSimple(s);
     s = s.toLowerCase();
     String[] digraphs = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr",
                           "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc",
                           "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th",
                           "tr", "tw", "wh", "wr"};
     for (int i = 0; i < digraphs.length; i++) {
-      if (s.substring(0,2).equals(digraphs[i])) {
+      if (s.length() > 1 && s.substring(0,2).equals(digraphs[i])) {
         i = digraphs.length;
         return s.substring(2) + s.substring(0,2) + "ay";
       }
